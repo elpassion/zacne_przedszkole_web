@@ -11,7 +11,6 @@ import configuration from '../configuration.js'
 export default class Kindergarten extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       kindergarten: {},
       marker: {},
@@ -73,16 +72,24 @@ export default class Kindergarten extends React.Component {
 
   kindergatenLoaded(response) {
     this.setState({
-      marker: {
-        position: {
-          lat: response.latitude,
-          lng: response.longitude,
-          id: response.id,
-          name: response.name
-        }
-      },
-      isMarkerLoaded: true
+      marker: this.markerFromKindergarten(response),
+      isMarkerLoaded: this.validPositions(response)
     });
+  }
+
+  markerFromKindergarten(kindergarten) {
+    return {
+      position: {
+        lat: kindergarten.latitude,
+        lng: kindergarten.longitude
+      },
+      key: kindergarten.id,
+      name: kindergarten.name
+    }
+  }
+
+  validPositions(kindergarten) {
+    return kindergarten.latitude && kindergarten.longitude;
   }
 
   kindergatenNotLoaded() {
