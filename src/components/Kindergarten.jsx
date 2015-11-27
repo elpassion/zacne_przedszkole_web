@@ -2,8 +2,8 @@ import React from 'react';
 import {default as update} from 'react-addons-update';
 
 import {GoogleMap, Marker} from 'react-google-maps';
-import {default as ScriptjsLoader} from 'react-google-maps/lib/async/ScriptjsLoader';
-import {default as MarkerClusterer} from "react-google-maps/lib/addons/MarkerClusterer"
+import ScriptjsLoader from 'react-google-maps/lib/async/ScriptjsLoader';
+import MarkerClusterer from "react-google-maps/lib/addons/MarkerClusterer"
 
 import BackendConnection from '../connections/BackendConnection';
 import configuration from '../configuration.js'
@@ -50,6 +50,26 @@ export default class Kindergarten extends React.Component {
             }
           />
         </div>
+        <div className='kindergarten-info'>
+          <div className='kindergarten-header'>
+            <div className='pure-g'>
+              <div className='pure-u-3-4 kindergarten-name'>
+                <h3>{this.state.kindergarten.name}</h3>
+              </div>
+              <div className='pure-u-1-4'>
+                <div className='pull-right kindergarten-rating'>10/10</div>
+              </div>
+            </div>
+          </div>
+
+          <div className='pure-g'>
+            <div className='pure-u-1-2'>
+              <div className='kindergarten-address'>
+                sdfdsf
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -71,10 +91,13 @@ export default class Kindergarten extends React.Component {
   }
 
   kindergatenLoaded(response) {
+    console.log(response);
     this.setState({
       marker: this.markerFromKindergarten(response),
+      kindergarten: response,
       isMarkerLoaded: this.validPositions(response)
     });
+    document.title = response.name;
   }
 
   markerFromKindergarten(kindergarten) {
@@ -84,7 +107,8 @@ export default class Kindergarten extends React.Component {
         lng: kindergarten.longitude
       },
       key: kindergarten.id,
-      name: kindergarten.name
+      name: kindergarten.name,
+      animation: 2
     }
   }
 
