@@ -20,7 +20,14 @@
     "test:watch": "karma start --autoWatch=true --singleRun=false"
   },
   "repository": "",
-  "keywords": ["zance", "znane", "przeszkole", "warszawa", "ranking", "opinie"],
+  "keywords": [
+    "zance",
+    "znane",
+    "przeszkole",
+    "warszawa",
+    "ranking",
+    "opinie"
+  ],
   "author": "Patryk Wojtyński & Adrian Serafin - EL Passion",
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -66,7 +73,9 @@
     "normalize.css": "^3.0.3",
     "react": "^0.14.0",
     "react-addons-test-utils": "^0.14.0",
+    "react-addons-update": "^0.14.3",
     "react-dom": "^0.14.0",
+    "react-google-maps": "^4.6.0",
     "react-router": "^1.0.0"
   }
 }
