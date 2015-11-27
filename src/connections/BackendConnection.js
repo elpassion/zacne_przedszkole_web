@@ -11,6 +11,10 @@ class BackendConnection {
     });
   }
 
+  getKindergarten(id, callback, errorCallback) {
+    this.doGet(this.url + `schools/${id}`, {}, callback, errorCallback);
+  }
+
   doGet(url, data, successCallback, errorCallback) {
     this.doAjax('GET', url, data, successCallback, errorCallback);
   }

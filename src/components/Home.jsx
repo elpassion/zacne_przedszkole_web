@@ -51,8 +51,8 @@ export default class Home extends React.Component {
                 defaultCenter={{lat: 52.2468517, lng: 21.0075741}}>
                 <MarkerClusterer
                   averageCenter={true}
-                   enableRetinaIcons={true}
-                   gridSize={60}>
+                  enableRetinaIcons={true}
+                  gridSize={60}>
                   {this.state.markers.map((marker, index) => {
                     return (
                       <Marker
