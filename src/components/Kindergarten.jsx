@@ -117,7 +117,7 @@ export default class Kindergarten extends React.Component {
   }
 
   kindergatenNotLoaded() {
-    console.log('Reirect here!!!!!');
+    this.props.history.pushState(null, '/przedszkole/brak', {});
   }
 
 }

@@ -41,9 +41,17 @@ body {
   float: right;
 }
 
-.kindergartens-map {
+.kindergartens-map,
+.kindergarten-misssing {
   width: 100%;
   height: 500px;
+}
+
+.kindergarten-misssing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
 }
 
 .topbar {
