@@ -7,6 +7,7 @@ import MarkerClusterer from "react-google-maps/lib/addons/MarkerClusterer"
 
 import BackendConnection from '../connections/BackendConnection';
 import configuration from '../configuration.js'
+import LocalStorage from '../lib/LocalStorage';
 
 export default class Kindergarten extends React.Component {
   constructor(props) {
@@ -14,7 +15,8 @@ export default class Kindergarten extends React.Component {
     this.state = {
       kindergarten: {},
       marker: {},
-      isMarkerLoaded: false
+      isMarkerLoaded: false,
+      alreadyVoted: true
     }
     this.getKindergarten();
   }
@@ -69,16 +71,27 @@ export default class Kindergarten extends React.Component {
             <div className='pure-u-1-2 separator' />
           </div>
 
-          <div className='pure-g'>
-            <div className='pure-u-1 center'>
-              <span>Jak oceniasz to przedszkole?</span>
-              <div className='stars-rating'>
-                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+
+          <div className='pure-g' hidden={this.state.alreadyVoted}>
+            <div className='pure-u-1'>
+              <div className='pure-g'>
+                <div className='pure-u-1 center'>
+                  <span>Jak oceniasz to przedszkole?</span>
+                  <div className='stars-rating'>
+                    <span onClick={this.rate.bind(this, 10)}>☆</span>
+                    <span onClick={this.rate.bind(this, 9)}>☆</span>
+                    <span onClick={this.rate.bind(this, 8)}>☆</span>
+                    <span onClick={this.rate.bind(this, 7)}>☆</span>
+                    <span onClick={this.rate.bind(this, 6)}>☆</span>
+                    <span onClick={this.rate.bind(this, 5)}>☆</span>
+                    <span onClick={this.rate.bind(this, 4)}>☆</span>
+                    <span onClick={this.rate.bind(this, 3)}>☆</span>
+                    <span onClick={this.rate.bind(this, 2)}>☆</span>
+                    <span onClick={this.rate.bind(this, 1)}>☆</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className='pure-g'>
             <div className='pure-u-1-4' />
             <div className='pure-u-1-2 separator' />
           </div>
@@ -115,6 +128,18 @@ export default class Kindergarten extends React.Component {
     );
   }
 
+  rate(rating) {
+    console.log(this);
+    BackendConnection.rateSchool(this.state.kindergarten.id, rating, this.kindergartenRated.bind(this));
+  }
+
+  kindergartenRated(school) {
+    const votes = LocalStorage.getObject("votes");
+    votes[this.state.kindergarten.id] = true;
+    LocalStorage.setObject("votes", votes);
+    this.kindergatenLoaded(school);
+  }
+
   renderMarker() {
     if (this.state.isMarkerLoaded) return <Marker {...this.state.marker}/>;
   }
@@ -135,9 +160,14 @@ export default class Kindergarten extends React.Component {
     this.setState({
       marker: this.markerFromKindergarten(response),
       kindergarten: response,
-      isMarkerLoaded: this.validPositions(response)
+      isMarkerLoaded: this.validPositions(response),
+      alreadyVoted: this.alreadyVoted(response.id)
     });
     document.title = response.name;
+  }
+
+  alreadyVoted(schoolId) {
+    return LocalStorage.getObject("votes")[schoolId.toString()];
   }
 
   markerFromKindergarten(kindergarten) {

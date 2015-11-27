@@ -17,6 +17,12 @@ class BackendConnection {
     });
   }
 
+  rateSchool(schoolId, rating, callback) {
+    this.doPost(this.url + 'schools/' + schoolId + '/rates', { stars: rating }, callback, (errorResponse) => {
+      console.log(errorResponse);
+    });
+  }
+
   getKindergarten(id, callback, errorCallback) {
     this.doGet(this.url + `schools/${id}`, {}, callback, errorCallback);
   }
