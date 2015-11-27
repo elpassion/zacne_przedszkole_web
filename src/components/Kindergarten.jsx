@@ -71,7 +71,8 @@ export default class Kindergarten extends React.Component {
 
           <div className='pure-g'>
             <div className='pure-u-1 center'>
-              <div className="starts-rating">
+              <span>Jak oceniasz to przedszkole?</span>
+              <div className='stars-rating'>
                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
               </div>
             </div>

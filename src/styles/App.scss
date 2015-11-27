@@ -112,13 +112,13 @@ input.search-input {
 .stars-rating {
   unicode-bidi: bidi-override;
   direction: rtl;
-  font-size: 2em;
   margin-bottom: 1em;
 }
 
 .stars-rating > span {
   display: inline-block;
   position: relative;
+  font-size: 2em;
   width: 1.1em;
 }
 
