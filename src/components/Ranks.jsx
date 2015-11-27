@@ -14,8 +14,8 @@ class Ranks extends React.Component {
   }
 
   render() {
-    const schoolRows = this.state.schools.map((school) => {
-      return <RankRow school={school} key={school.id} />
+    const schoolRows = this.state.schools.map((school, index) => {
+      return <RankRow school={school} index={index+1} key={school.id} />
     });
 
     return (

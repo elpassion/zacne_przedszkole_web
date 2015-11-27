@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router'
 
 import TopBarSearchInput from './TopBarSearchInput';
-import { Link } from 'react-router'
 
 class TopBar extends React.Component {
   render() {
