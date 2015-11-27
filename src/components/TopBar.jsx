@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router'
+
 import TopBarSearchInput from './TopBarSearchInput';
 import { Link } from 'react-router'
 
@@ -8,7 +10,7 @@ class TopBar extends React.Component {
       <div className='topbar'>
         <div className='l-box'>
           <div className='pure-menu pure-menu-horizontal'>
-            <a href='#' className='pure-menu-heading pure-menu-link'>Zacne Przedszkole</a>
+            <Link to='/' className='pure-menu-heading pure-menu-link'>Zacne Przedszkole</Link>
             <ul className='pure-menu-list'>
               <li className='pure-menu-item menu-input'>
                 <TopBarSearchInput />

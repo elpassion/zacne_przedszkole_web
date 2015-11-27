@@ -2,10 +2,11 @@ import React from 'react';
 import {default as update} from 'react-addons-update';
 
 import {GoogleMap, Marker} from 'react-google-maps';
-import {default as ScriptjsLoader} from 'react-google-maps/lib/async/ScriptjsLoader';
-import {default as MarkerClusterer} from "react-google-maps/lib/addons/MarkerClusterer"
+import ScriptjsLoader from 'react-google-maps/lib/async/ScriptjsLoader';
+import MarkerClusterer from "react-google-maps/lib/addons/MarkerClusterer"
 
 import BackendConnection from '../connections/BackendConnection';
+import configuration from '../configuration.js'
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -47,8 +48,8 @@ export default class Home extends React.Component {
             googleMapElement={
               <GoogleMap
                 ref='map'
-                defaultZoom={11}
-                defaultCenter={{lat: 52.2468517, lng: 21.0075741}}>
+                defaultZoom={configuration.defaultMapZoom}
+                defaultCenter={configuration.defaultMapCenter}>
                 <MarkerClusterer
                   averageCenter={true}
                   enableRetinaIcons={true}
