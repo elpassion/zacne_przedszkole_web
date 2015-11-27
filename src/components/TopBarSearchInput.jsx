@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router';
+
+import BackendConnection from '../connections/BackendConnection';
 
 class TopBarSearchInput extends React.Component {
   constructor(props) {
@@ -11,9 +14,24 @@ class TopBarSearchInput extends React.Component {
 
   render() {
     return (
-      <form className='pure-form' onSubmit={this.preventSubmit}>
-        <input className='pure-input-1 search-input' type='text' placeholder='Szukaj...' onChange={this.searchUpdated.bind(this)} />
-      </form>
+      <div className='search-input'>
+        <form className='pure-form' onSubmit={this.preventSubmit}>
+          <input type='text' placeholder='Szukaj...' onChange={this.queryUpdated.bind(this)} />
+
+          <div className='search-results'>
+            <ul>
+              {this.state.searchResults.map((result) => {
+                  return (
+                    <li key={result.id}>
+                      <Link to={'/przedszkole/' + result.id}>{result.name}</Link>
+                    </li>
+                  );
+                }
+              )}
+            </ul>
+          </div>
+        </form>
+      </div>
     );
   }
 
@@ -21,9 +39,17 @@ class TopBarSearchInput extends React.Component {
     event.preventDefault();
   }
 
-  searchUpdated(event) {
+  queryUpdated(event) {
     const value = event.target.value;
-    this.setState();
+    if (this.state.oldQuery !== value && value.length >= 4) {
+      BackendConnection.searchKindergartens(value, (response) => {
+        this.setState({searchResults: response});
+      });
+    } else {
+      this.setState({searchResults: []});
+    }
+    this.setState({searchQuery: value});
+
   }
 }
 

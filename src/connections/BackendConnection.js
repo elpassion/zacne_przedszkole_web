@@ -27,12 +27,14 @@ class BackendConnection {
     this.doGet(this.url + `schools/${id}`, {}, callback, errorCallback);
   }
 
-  doGet(url, data, successCallback, errorCallback) {
-    this.doAjax('GET', url, data, successCallback, errorCallback);
+  searchKindergartens(query, callback) {
+    this.doGet(this.url + 'schools/search', {query: query}, callback, (errorResponse) => {
+      console.log(errorResponse);
+    });
   }
 
-  doPut(url, data, successCallback, errorCallback) {
-    this.doAjax('PUT', url, data, successCallback, errorCallback);
+  doGet(url, data, successCallback, errorCallback) {
+    this.doAjax('GET', url, data, successCallback, errorCallback);
   }
 
   doPost(url, data, successCallback, errorCallback) {

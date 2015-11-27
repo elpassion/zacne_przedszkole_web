@@ -16,8 +16,14 @@ export default class Kindergarten extends React.Component {
       kindergarten: {},
       marker: {},
       isMarkerLoaded: false,
-      alreadyVoted: true
+      alreadyVoted: true,
+      kindergartenId: props.params.id
     }
+    this.getKindergarten();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({kindergartenId: nextProps.params.id});
     this.getKindergarten();
   }
 
@@ -153,7 +159,7 @@ export default class Kindergarten extends React.Component {
   }
 
   getKindergarten() {
-    BackendConnection.getKindergarten(this.props.params.id, this.kindergatenLoaded.bind(this), this.kindergatenNotLoaded.bind(this));
+    BackendConnection.getKindergarten(this.state.kindergartenId, this.kindergatenLoaded.bind(this), this.kindergatenNotLoaded.bind(this));
   }
 
   kindergatenLoaded(response) {
@@ -187,7 +193,7 @@ export default class Kindergarten extends React.Component {
   }
 
   kindergatenNotLoaded() {
-    this.props.history.pushState(null, '/przedszkole/brak', {});
+    this.props.history.pushState(null, '/przedszkole/nie_znaleziono', {});
   }
 
 }

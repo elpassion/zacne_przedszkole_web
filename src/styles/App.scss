@@ -62,6 +62,10 @@ body {
 }
 
 .kindergarten-rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 
   .rating {
     height: 100%;
@@ -101,21 +105,57 @@ body {
   max-width: 200px;
 }
 
-input.search-input {
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  padding: 10px;
-  border: solid 1px #DCDCDC;
-  transition: box-shadow 0.3s, border 0.3s;
+.search-input {
+  position: relative;
 
-  &:focus {
-    outline: none;
-    border: solid 1px #707070;
-    box-shadow: 0 0 5px 1px #969696;
+  .search-results {
+    z-index: 2;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 500px;
+
+    ul {
+      list-style-type: none;
+      text-align: left;
+      padding: 0;
+
+      li {
+        background-color: #FFFFFF;
+        padding: 10px;
+        border-bottom: 1px solid #F0EDE5;
+        overflow: hidden;
+
+        a {
+          display: block;
+          text-decoration: none;
+          color: #000000;
+        }
+
+        &:last-child {
+          border-radius: 0 0 5px 5px;
+        }
+      }
+    }
+  }
+
+  input {
+    width: 100%;
+    z-index: 4;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 10px;
+    border: solid 1px #DCDCDC;
+    transition: box-shadow 0.3s, border 0.3s;
+
+    &:focus {
+      outline: none;
+      border: solid 1px #707070;
+      box-shadow: 0 0 5px 1px #969696;
+    }
   }
 }
-
 .stars-rating {
   unicode-bidi: bidi-override;
   direction: rtl;
@@ -126,11 +166,13 @@ input.search-input {
   display: inline-block;
   position: relative;
   font-size: 2em;
+  cursor: pointer;
+  cursor: hand;
   width: 1.1em;
 }
 
 .stars-rating > span:hover:before,
 .stars-rating > span:hover ~ span:before {
-   content: "\2605";
-   position: absolute;
+  content: "\2605";
+  position: absolute;
 }

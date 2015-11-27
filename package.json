@@ -68,6 +68,7 @@
     "node-sass": "^3.3.3"
   },
   "dependencies": {
+    "classnames": "^2.2.1",
     "history": "^1.13.1",
     "lodash": "^3.10.1",
     "normalize.css": "^3.0.3",
