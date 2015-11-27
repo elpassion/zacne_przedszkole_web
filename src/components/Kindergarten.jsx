@@ -58,7 +58,7 @@ export default class Kindergarten extends React.Component {
               </div>
               <div className='pure-u-1-4 kindergarten-rating'>
                 <div className='rating pull-right'>
-                  {Math.floor(this.state.kindergarten.stars)}/10
+                  {Math.floor(this.state.kindergarten.stars || 0)}/10
                 </div>
               </div>
             </div>
