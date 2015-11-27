@@ -23,7 +23,7 @@ export default class Home extends React.Component {
             lng: marker.longitude,
           },
           key: marker.id,
-          name: marker.name,
+          title: marker.name,
           defaultAnimation: 0
         };
       })
@@ -58,6 +58,7 @@ export default class Home extends React.Component {
                     return (
                       <Marker
                         {...marker}
+                        onClick={this.handleMarkerClick.bind(this, marker.key)}
                       />
                     );
                   })}
@@ -68,5 +69,9 @@ export default class Home extends React.Component {
         </div>
       </div>
     );
+  }
+
+  handleMarkerClick(key) {
+    this.props.history.pushState(null, '/przedszkole/' + key, {});
   }
 }

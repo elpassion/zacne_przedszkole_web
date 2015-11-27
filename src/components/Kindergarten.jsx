@@ -110,11 +110,6 @@ export default class Kindergarten extends React.Component {
               </div>
             </div>
           </div>
-
-          <div className='pure-g'>
-            <div className='pure-u-1-4' />
-            <div className='pure-u-1-2 separator' />
-          </div>
         </div>
       </div>
     );
@@ -137,7 +132,6 @@ export default class Kindergarten extends React.Component {
   }
 
   kindergatenLoaded(response) {
-    console.log(response);
     this.setState({
       marker: this.markerFromKindergarten(response),
       kindergarten: response,

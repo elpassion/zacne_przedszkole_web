@@ -16,7 +16,7 @@ class App extends React.Component {
               <TopBar />
             </div>
             <div className="pure-u-1">
-              {this.props.children || <Home />}
+              {this.props.children || <Home {...this.props} />}
             </div>
           </div>
         </div>
