@@ -67,6 +67,10 @@ export default class Home extends React.Component {
             }
           />
         </div>
+
+        <div className='home-info'>
+          Zawsze wybieraj to co najlepsze
+        </div>
       </div>
     );
   }
