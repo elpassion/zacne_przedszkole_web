@@ -67,6 +67,10 @@ body {
   margin-bottom: 1em;
 }
 
+.right-border {
+  border-right: 1px solid #F0EDE5;
+}
+
 .column {
   margin-bottom: 2em;
 
@@ -103,5 +107,23 @@ input.search-input {
     border: solid 1px #707070;
     box-shadow: 0 0 5px 1px #969696;
   }
+}
 
+.stars-rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.stars-rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+.stars-rating > span:hover:before,
+.stars-rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
 }

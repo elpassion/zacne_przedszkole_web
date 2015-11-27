@@ -70,8 +70,21 @@ export default class Kindergarten extends React.Component {
           </div>
 
           <div className='pure-g'>
+            <div className='pure-u-1 center'>
+              <div className="starts-rating">
+                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+              </div>
+            </div>
+          </div>
+
+          <div className='pure-g'>
+            <div className='pure-u-1-4' />
+            <div className='pure-u-1-2 separator' />
+          </div>
+
+          <div className='pure-g'>
             <div className='pure-u-1-2 pure-md-u-1'>
-              <div className='column l-box'>
+              <div className='column l-box right-border'>
                 <div className='header'>Adres</div>
                 <div className='pure-g'>
                   <div className='pure-u-1-2 field-name'>Miasto</div>
@@ -83,6 +96,23 @@ export default class Kindergarten extends React.Component {
                 </div>
               </div>
             </div>
+
+            <div className='pure-u-1-2 pure-md-u-1'>
+              <div className='column l-box'>
+                <div className='header'>Kontakt</div>
+                <div className='pure-g'>
+                  <div className='pure-u-1-2 field-name'>Telefon</div>
+                  <div className='pure-u-1-2 field-value'>{this.state.kindergarten.phone}</div>
+                  <div className='pure-u-1-2 field-name'>Email</div>
+                  <div className='pure-u-1-2 field-value'>{this.state.kindergarten.email}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className='pure-g'>
+            <div className='pure-u-1-4' />
+            <div className='pure-u-1-2 separator' />
           </div>
         </div>
       </div>
