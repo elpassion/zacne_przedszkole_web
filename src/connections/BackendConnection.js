@@ -11,6 +11,12 @@ class BackendConnection {
     });
   }
 
+  getRanking(offset, limit, callback) {
+    this.doGet(this.url + 'schools/ranking', { offset: offset, limit: limit }, callback, (errorResponse) => {
+      console.log(errorResponse);
+    });
+  }
+
   getKindergarten(id, callback, errorCallback) {
     this.doGet(this.url + `schools/${id}`, {}, callback, errorCallback);
   }
