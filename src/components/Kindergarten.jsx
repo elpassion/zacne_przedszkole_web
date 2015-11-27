@@ -51,21 +51,36 @@ export default class Kindergarten extends React.Component {
           />
         </div>
         <div className='kindergarten-info'>
-          <div className='kindergarten-header'>
+          <div className='kindergarten-header l-box'>
             <div className='pure-g'>
               <div className='pure-u-3-4 kindergarten-name'>
                 <h3>{this.state.kindergarten.name}</h3>
               </div>
-              <div className='pure-u-1-4'>
-                <div className='pull-right kindergarten-rating'>10/10</div>
+              <div className='pure-u-1-4 kindergarten-rating'>
+                <div className='rating pull-right'>
+                  {this.state.kindergarten.stars}/10
+                </div>
               </div>
             </div>
           </div>
 
           <div className='pure-g'>
-            <div className='pure-u-1-2'>
-              <div className='kindergarten-address'>
-                sdfdsf
+            <div className='pure-u-1-4' />
+            <div className='pure-u-1-2 separator' />
+          </div>
+
+          <div className='pure-g'>
+            <div className='pure-u-1-2 pure-md-u-1'>
+              <div className='column l-box'>
+                <div className='header'>Adres</div>
+                <div className='pure-g'>
+                  <div className='pure-u-1-2 field-name'>Miasto</div>
+                  <div className='pure-u-1-2 field-value'>{this.state.kindergarten.city}</div>
+                  <div className='pure-u-1-2 field-name'>Ulica</div>
+                  <div className='pure-u-1-2 field-value'>{this.state.kindergarten.address}</div>
+                  <div className='pure-u-1-2 field-name'>Kod pocztowy</div>
+                  <div className='pure-u-1-2 field-value'>{this.state.kindergarten.postCode}</div>
+                </div>
               </div>
             </div>
           </div>

@@ -54,6 +54,32 @@ body {
   font-size: 2em;
 }
 
+.kindergarten-rating {
+
+  .rating {
+    height: 100%;
+    font-size: 2em;
+  }
+}
+
+.separator {
+  border-bottom: 1px solid #F0EDE5;
+  margin-bottom: 1em;
+}
+
+.column {
+  margin-bottom: 2em;
+
+  .header {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+  }
+
+  .field-name {
+    font-weight: bold;
+  }
+}
+
 .topbar {
   width: 100%;
   background-color: #FEFDFA;
