@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router'
 
 class RankRow extends React.Component {
   constructor(props) {
@@ -13,9 +14,9 @@ class RankRow extends React.Component {
       <tr>
         <td>1</td>
         <td>{Math.floor(this.state.school.stars)}/10</td>
-        <td>{this.state.school.name}</td>
+        <td><Link to={'/przedszkole/' + this.state.school.id}>{this.state.school.name}</Link></td>
         <td>{this.state.school.address}, {this.state.school.city}</td>
-      </tr>
+      </tr>      
     );
   }
 }

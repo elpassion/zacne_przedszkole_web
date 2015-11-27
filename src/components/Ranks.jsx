@@ -28,7 +28,7 @@ class Ranks extends React.Component {
               </h3>
             </div>
           </div>
-          <table className="pure-table">
+          <table className="pure-table pure-table-striped">
             <thead>
               <tr>
                 <th>#</th>

@@ -1,5 +1,6 @@
 import React from 'react';
 import TopBarSearchInput from './TopBarSearchInput';
+import { Link } from 'react-router'
 
 class TopBar extends React.Component {
   render() {
@@ -15,7 +16,9 @@ class TopBar extends React.Component {
             </ul>
             <ul className='pull-right pure-menu-list'>
               <li className='pure-menu-item'>
-                <a href='#' className='pure-menu-link'>Ranking</a>
+                <Link to="/ranking" className="pure-menu-link">
+                  Ranking
+                </Link>
               </li>
             </ul>
           </div>
